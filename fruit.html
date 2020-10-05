@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>Fruit Prediction</title>
+  </head>
+  <body>
+    <br>
+    <br>
+    <div class="container main">
+  <div class="jumbotron" id="holder">
+    <h1 class='main_heading'> Fruit Predictor</h1>
+    <h3>Developed this machine learning model to distingruish the different type of fruits
+      (oranges, lemons and apples). The dataset was made by
+      Dr. Iain Murray, University of Edinburgh. The file contains the mass, height, and width of a selection of oranges, lemons and apples.
+      The heights were measured along the core of the fruit. The widths were the widest width perpendicular to the height.</h3>
+    <br>
+    <div class="instructions">
+      <h2>Instructions: </h2>
+      <p>1. Please input the 3 features (mass, height, width) of your fruit.</p>
+      <p>2. Click the 'Submit' button to predict.</p>
+    </div>
+    <br>
+    <br>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Feature1 (mass):</label>
+        <div class="col-sm-10">
+          <input  class="form-control" id="feature1" placeholder=" Enter feature1 (for example, 172)" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" >Feature2 (height):</label>
+        <div class="col-sm-10">
+          <input  class="form-control" id="feature2" placeholder=" Enter feature2, (for example, 7.4)" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" >Feature3 (width):</label>
+        <div class="col-sm-10">
+          <input class="form-control" id="feature3" placeholder=" Enter feature3 (for example, 6.9)" >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="button btn btn-default">Submit</button>
+
+          <font size="2" face="verdana" color="blue">
+		<h3>Under Construction... </h3>
+		</font>
+        </div>
+      </div>
+    </form>
+    <h2 class="result"></h2>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <div class="footer-copyright text-center py-3">
+    <div class="bottom">
+      <p><a href="index.html"><u>AI Club</u></a></p>
+    </div>
+  </div>
+
+</footer>
+<!-- Footer -->
+
+
+  </body>
+
+<script>
+  var feature1_ ,feature2_, feature3_;
+
+$(document).ready(function(){
+  // fetch all DOM elements for the input
+  feature1_ = document.getElementById("feature1");
+  feature2_ = document.getElementById("feature2");
+  feature3_ = document.getElementById("feature3");
+})
+
+$(document).on('click','#submit',function(){
+    // on clicking submit fetch values from DOM elements and use them to make request to our flask API
+    var feature1 = feature1_.value;
+    var feature2 = feature2_.value;
+    var feature3 = feature3_.value;
+    if(feature1 == "" || feature2 == "" || feature3 == ""){
+      // you may allow it as per your model needs
+      // you may mark some fields with * (star) and make sure they aren't empty here
+      alert("empty fields not allowed");
+    }
+    else{
+      // replace <username> with your pythonanywhere username
+      // also make sure to make changes in the url as per your flask API argument names
+      var requestURL = "https://<username>.pythonanywhere.com/?feature1="+feature1+"&feature2="+feature2+"&feature3="+feature3;
+      console.log(requestURL); // log the requestURL for troubleshooting
+      $.getJSON(requestURL, function(data) {
+        console.log(data); // log the data for troubleshooting
+        prediction = data['json_key_for_the_prediction'];
+      });
+      // following lines consist of action that would be taken after the request has been read
+      // for now i am just changing a <h2> tag's inner html using jquery
+      // you may simple do: alert(prediction);
+      $(".result").html("Prediction is:" + prediction);
+    }
+  });
+
+
+
+</script>
+</html>
