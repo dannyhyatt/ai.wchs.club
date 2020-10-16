@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
-    
+
     <title>Churchill AI Club projects</title>
     <meta name="description" content="Recognize your handwriting numbers">
     <meta name="keywords" content="Machine Learning, TensorFlow.js">
 
-<link rel="stylesheet" href="https://unpkg.com/mvp.css">  
+<link rel="stylesheet" href="https://unpkg.com/mvp.css">
 
     <style>
 
@@ -14,7 +14,7 @@
         border:10px solid blue;
         margin: auto;
       }
-      #predicted { 
+      #predicted {
         font-size: 60px;
         margin-top: 60px;
         text-align: center;
@@ -45,7 +45,7 @@
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.5.2/dist/tf.min.js"></script>
-   
+
 
 
 <section>
@@ -54,13 +54,13 @@
       			<canvas id="myCanvas"></canvas>
     		</div>
             </aside>
-            
-                  <img src="./img/brain.png" >
-            
+
+                  <img src="/img/brain.png" >
+
             <aside><p><b>Predict:</b></p>
                   <div id="number"></div>
             </aside>
-          
+
 </section>
 
 <section><button id="clear">Clear</button>
@@ -117,7 +117,7 @@
     }, false);
 
     canvas.addEventListener('mouseup', function() {
-      $('#number').html('<img id="spinner" src="spinner.gif"/>');
+      $('#number').html('<img id="spinner" src="/img/spinner.gif"/>');
       canvas.removeEventListener('mousemove', onPaint, false);
       var img = new Image();
       img.onload = function() {
@@ -137,7 +137,7 @@
       context.stroke();
     };
 
-    tf.loadLayersModel('model/model.json').then(function(model) {
+    tf.loadLayersModel('/digits/model/model.json').then(function(model) {
       window.model = model;
     });
 

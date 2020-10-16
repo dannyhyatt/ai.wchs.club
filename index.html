@@ -1,71 +1,76 @@
 <!DOCTYPE html>
 <html>
-<title>AI Club</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
 <head>
 <link rel="stylesheet" href="https://unpkg.com/mvp.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 
+<title>AI Club</title>
 </head>
 
-<body  style="background-image: url('./img/back.gif'); min-height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center center; " >
+<body style="min-height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center center; " >
 
 <header>
 
-<nav>    
-
-            <ul>
-                <li>Home</li>
-                <li><a href="">Events</a></li>
-                <li><a href="">Projects</a></li>
-                <li><a href="" target="_blank">Contact</a></li>
-            </ul>
-             <a href="https://www2.montgomeryschoolsmd.org/schools/churchillhs"><img alt="" src="./img/logo.png" height="70">Churchill High School</a>
-
+<nav>
+    <ul>
+        <li>Home</li>
+        <li><a href="/demos">Demos</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="https://classroom.google.com/c/MTQ0NjA3MzAxODE5?cjc=jzt2gju" target="_blank">Join</a></li>
+    </ul>
+    <a href="https://www2.montgomeryschoolsmd.org/schools/churchillhs"><img alt="" src="./img/logo.png" height="70">Churchill High School</a>
 </nav>
- 
- 
-  
-  <h1><b>Churchill AI Club</b></h1>
-  <p><b>Artificial Intelligence is transforming the world.</b></p>
 
-</header>  
 
-  <p align="center">>>>Please try the following projects we built.<<<</p>
-        <section>
-            <aside>
-                <img alt="digit" src="./img/pic1.JPG" height="150" width="450">
-                <h3>Recognize your handwriting numbers:</h3>
-                <p>Generated the Machine Learning model to recognize the number (0-9) you draw. Dataset: MNIST. Model: Sequential. Convolutional neural network deep learning. </p>
-                <p><a href="digit.html" target="_blank"><em>Run it
-                            &nearr;</em></a></p>
-            </aside>
-            <aside>
-                <img alt="fruits" src="./img/pic2.jpg" height="150" width="250">
-                <h3>Fruit Predictor:</h3>
-                <p>Generated a machine learning model to distingruish the different type of fruits (oranges, lemons and apples)
-                </p>
 
-		<font size="2" face="verdana" color="blue"> 
-		<p style="color:blue;"><h3>Under Construction... </h3></p>
-		</font>
-                 <p><a href="fruit.html" target="_blank"><em>Run it
-                            &nearr;</em></a></p>
-            </aside>
-            <aside>
-                <img alt="MIT license" src="./img/license.svg" height="150">
-                <h3>MIT License</h3>
-                <p>MVP is released under the permissive MIT license so you can freely use it however you'd like.</p>
-                <p>That means personal projects, commercial ventures, remixes and more are all welcome.</p>
-		<font size="2" face="verdana" color="blue"> 		
-		<p><h3>Under Construction...</h3></p>
-		</font>
-            </aside>
-        </section>
+<h1><b>Churchill AI Club</b></h1>
+<p><b>Artificial Intelligence is <span id="typed"></span></b></p>
+<div style="display: none" id="typed-strings">
+  <p>transforming the world.</p>
+  <p>driving cars.</p>
+  <p>diagnosing diseases.</p>
+  <p>predicting the next pandemic.</p>
+  <p>coloring images.</p>
+  <p>detecting bad crops.</p>
+  <p>transforming the world.</p>
+</div>
+
+
+</header>
+<section>
+    <aside>
+        <img alt="digit" src="./img/pic1.JPG" height="150" width="450">
+        <h3>Recognize your handwriting numbers:</h3>
+        <p>Generated the Machine Learning model to recognize the number (0-9) you draw. Dataset: MNIST. Model: Sequential. Convolutional neural network deep learning. </p>
+        <p><a href="/digits" target="_blank"><em>Run it
+                    &nearr;</em></a></p>
+    </aside>
+    <aside>
+        <img alt="fruits" src="./img/pic2.jpg" height="150" width="250">
+        <h3>Fruit Predictor:</h3>
+        <p>
+          Generated a machine learning model to distingruish the different type of fruits (oranges, lemons and apples)<br>
+          Coming soon...
+        </p>
+         <p><a href="/fruit"><em>Run It &nearr;</em></a></p>
+    </aside>
+</section>
+
+<!-- typing animation -->
+<script>
+var typed = new Typed('#typed', {
+    stringsElement: '#typed-strings',
+    typeSpeed: 85,
+    startDelay: 25,
+    backspaceDelay: 650,
+    loop: false
+});
+</script>
 
 </body>
 
